@@ -69,7 +69,7 @@ for(pos = 180; pos>=10; pos-=1)     // goes from 180 degrees to 0 degrees
     myservo.write(pos);              // tell servo to go to position in variable 'pos' 
     delay(15);                       // waits 15ms for the servo to reach the position 
   } 
-while(sms_count<3) 
+while(sms_count<1) 
 {  
   SendTextMessage(); 
 }
@@ -100,20 +100,12 @@ Gas_Leak_Status=0;
 
 void SendTextMessage()
 {
-  mySerial.println("AT+CMGF=1");   
-  delay(1000);
-  mySerial.println("AT+CMGS=\"+919483723289\"\r"); 
-  delay(1000);
-  mySerial.println("Gas Leaking!");
-  delay(200);
-  mySerial.println((char)26);
-  delay(1000);
-   mySerial.println("AT+CMGS=\"+919483723289\"\r");  
-  delay(1000);
-  mySerial.println("Gas Leaking!");
-  delay(200);
-  mySerial.println((char)26);
-  delay(1000);
-  sms_count++;
+ curl -X POST  https://rest.nexmo.com/sms/json \
+-d api_key=0665ff2b \
+-d api_secret=b4080e7bd9707060 \
+-d to=919483723289 \
+-d from="LPG Detection System" \
+-d text="Gas leaking"
+ 
 }
 
