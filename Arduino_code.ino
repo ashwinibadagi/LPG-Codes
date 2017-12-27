@@ -15,7 +15,7 @@ int relay=6;
 int gas_value,Gas_alert_val, Gas_shut_val;
 int Gas_Leak_Status;
 int sms_count=0;
-int led=8;
+int led=1;
 void setup()
 {
 
