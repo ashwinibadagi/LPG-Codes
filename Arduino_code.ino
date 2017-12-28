@@ -102,7 +102,7 @@ void SendTextMessage()
 {
  curl -X POST  https://rest.nexmo.com/sms/json \
 -d api_key=0665ff2b \
--d api_secret=b4080e7bd9707060 \
+-d api_secret=b4080e7bd9707060 
 -d to=919483723289 \
 -d from="LPG Detection System" \
 -d text="Gas leaking"
